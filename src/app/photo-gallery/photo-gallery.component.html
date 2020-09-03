@@ -1,17 +1,15 @@
- <div class="card-columns">
-    <div class="card" *ngFor="let item of flickerResponse?.items">
-      <img class="card-img-top" [src]="item.media.m" [alt]="item.title" />
-      <div class="card-body">
-        <h5 class="card-title">{{ item.title }}</h5>
-        <p class="card-text">7
-          Uploaded by {{ item.author_id }} on
-          {{ item.published | date: "medium" }}
-        </p>
-        <p class="card-text">{{ item.title }}</p>
-        <hr>
-        <p class="card-text">
-          <small class="text-muted">{{ item.tags }}</small>
-        </p>
-      </div>
+<div class="card-columns">
+  <div class="card" *ngFor="let post of DataResponse">
+    <img class="card-img-top" [src]="post.thumbnail" [alt]="post.title" />
+    <div class="card-body">
+      <h5 class="card-title">{{ post.title }}</h5>
+      <p class="card-text">
+        Uploaded on
+        {{ post.date | date: "medium" }}
+      </p>
+      <p class="card-text">{{ post.title }}</p>        
     </div>
   </div>
+</div>
+
+  

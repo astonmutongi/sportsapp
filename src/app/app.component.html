@@ -24,22 +24,22 @@
   </div>
 
   <router-outlet></router-outlet>
-  <mat-toolbar class="toolbarNav" fxShow={{this.isUserAuthenticated}} fxHide.gt-sm>
+  <mat-toolbar class="toolbarNav" fxShow={{this.isUserAuthenticated}} fxHide.gt-sm>    
+    <button mat-button class="toolbar-button" [routerLink]="['./listing']">
+        <mat-icon aria-label="Sports">sports</mat-icon>
+        <div>Sports</div>
+    </button>
+      <button mat-button class="toolbar-button" [routerLink]="['./bids']">
+        <mat-icon aria-label="Bids">payments</mat-icon>
+        <div>Bids</div>
+    </button>
+    <button mat-button class="toolbar-button" [routerLink]="['./chat']">
+      <mat-icon aria-label="Chat">message</mat-icon>
+      <div>Chat</div>
+    </button>
     <button mat-button class="toolbar-button" [routerLink]="['./profile']" >
         <mat-icon aria-label="Profile">person</mat-icon>
         <div>Profile</div>
-    </button>
-      <button mat-button class="toolbar-button" [routerLink]="['./listing']">
-        <mat-icon aria-label="Profile">roofing</mat-icon>
-        <div>Properties</div>
-    </button>
-      <button mat-button class="toolbar-button" [routerLink]="['./bids']">
-        <mat-icon aria-label="Profile">payments</mat-icon>
-        <div>My Bids</div>
-    </button>
-      <button mat-button class="toolbar-button" [routerLink]="['./chat']">
-        <mat-icon aria-label="Profile">message</mat-icon>
-        <div>Chat</div>
     </button>
   </mat-toolbar>
 </div>

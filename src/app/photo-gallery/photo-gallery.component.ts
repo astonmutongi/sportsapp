@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FlickerResponse } from './models/flickerresponse';
-import { ListingService } from '../listing.service';
+import { ListingService, ScoreBat } from '../listing.service';
 
 @Component({
   selector: 'app-photo-gallery',
@@ -9,13 +8,14 @@ import { ListingService } from '../listing.service';
 })
 
 export class PhotoGalleryComponent implements OnInit {
-  flickerResponse: FlickerResponse;
+ Data: ScoreBat[];  
+  DataResponse: ScoreBat[];
   constructor(private listingService: ListingService) { }
   ngOnInit() {
-    this.listingService.getPhotos().subscribe( response => {
-      this.flickerResponse = response;
-    }, error => {
-      console.log(error);
-    });
+    this.listingService.getUsers().subscribe((res) => {
+          this.DataResponse = res;
+        }, error => {
+          console.log(error);
+        })
   }
 }
