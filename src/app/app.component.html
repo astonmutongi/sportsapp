@@ -1,0 +1,46 @@
+<div style="height: 80vh;">
+  <div fxShow={{!this.isUserAuthenticated}}>
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" ng-model=""/>
+        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">Username is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary" (click)="login()">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Login
+        </button>
+        <a routerLink="/register" class="btn btn-link">Register</a>
+    </div>
+  </div>
+
+  <router-outlet></router-outlet>
+  <mat-toolbar class="toolbarNav" fxShow={{this.isUserAuthenticated}} fxHide.gt-sm>
+    <button mat-button class="toolbar-button" [routerLink]="['./profile']" >
+        <mat-icon aria-label="Profile">person</mat-icon>
+        <div>Profile</div>
+    </button>
+      <button mat-button class="toolbar-button" [routerLink]="['./listing']">
+        <mat-icon aria-label="Profile">roofing</mat-icon>
+        <div>Properties</div>
+    </button>
+      <button mat-button class="toolbar-button" [routerLink]="['./bids']">
+        <mat-icon aria-label="Profile">payments</mat-icon>
+        <div>My Bids</div>
+    </button>
+      <button mat-button class="toolbar-button" [routerLink]="['./chat']">
+        <mat-icon aria-label="Profile">message</mat-icon>
+        <div>Chat</div>
+    </button>
+  </mat-toolbar>
+</div>
+ 
